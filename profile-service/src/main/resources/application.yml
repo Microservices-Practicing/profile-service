@@ -1,0 +1,21 @@
+server:
+  context-path: /profile-service
+  port: 8080
+  base-url:
+
+logging:
+  level:
+    root: DEBUG
+
+spring:
+  application:
+    name: profile
+  datasource:
+    url:
+    username:
+    password:
+  liquibase:
+    change-log: db-script/profile_schema.sql
+  security:
+    oauth2:
+      resourceserver.jwt.jwk-set-uri: ${server.base-url}/oauth2/jwks
