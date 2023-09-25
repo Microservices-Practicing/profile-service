@@ -7,8 +7,10 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>microservices-practice</name>
-	<description>A microservice hotels application</description>
+	<description>A microservice application</description>
 	<modules>
-		<module>auth-service</module>
+		<module>gateway</module>
+		<module>profile-service</module>
+		<module>point-service</module>
 	</modules>
 </project>
