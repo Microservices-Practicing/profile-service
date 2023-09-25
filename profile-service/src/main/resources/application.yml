@@ -1,21 +1,18 @@
 server:
   context-path: /profile-service
   port: 8080
-  base-url:
-
-logging:
-  level:
-    root: DEBUG
 
 spring:
   application:
-    name: profile
+    name: profile-service
+
   datasource:
-    url:
-    username:
-    password:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:5432/${POSTGRES_DATABASE:cs_profile}
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:123456}
   liquibase:
     change-log: db-script/profile_schema.sql
+
   security:
     oauth2:
-      resourceserver.jwt.jwk-set-uri: ${server.base-url}/oauth2/jwks
+      resourceserver.jwt.jwk-set-uri: ${OAUTH2_CLIENT_ISSUER_URI:http://localhost:9000}/oauth2/jwks
