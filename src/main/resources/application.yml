@@ -5,7 +5,13 @@ server:
 spring:
   application:
     name: profile-service
-
+  config:
+    import: "optional:configserver"
+  cloud:
+    config:
+      uri: http://localhost:8888
+      request-connect-timeout: 2000
+      request-read-timeout: 5000
   datasource:
     url: jdbc:postgresql://${POSTGRES_HOST:localhost}:5432/${POSTGRES_DATABASE:cs_profile}
     username: ${POSTGRES_USER:postgres}
