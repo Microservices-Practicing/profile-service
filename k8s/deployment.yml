@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: profile-service
+  labels:
+    app: profile-service
+spec:
+  selector:
+    matchLabels:
+      app: profile-service
+  template:
+    metadata:
+      labels:
+        app: profile-service
+    spec:
+      containers:
+        - name: profile-service
+          image: casha-profile-service
+          imagePullPolicy: Never
+          ports:
+          - containerPort: 8080
+#          env:
+#          - name: SPRING_DATASOURCE_URL
+#            value:
